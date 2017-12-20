@@ -3,23 +3,56 @@
 <head>
 	<meta name="viewport" content="width=device-width">
 	<style type="text/css">
+		body{
+			background: #c62f58;
+		}
 		.container{
+			height: 100vh;
+			width: 100vw;
 			display: flex;
-			margin: 0 auto;
+			margin:auto;
 			background: #c62f58;
 			flex-direction: row;
 			flex-wrap: wrap;
 			justify-content: space-around;
-
+			align-items: center;
 		}
 
 		.item{
 			margin:0 auto;
 			background: white;
-			width: 20vw;
-			height: 22vh;
+			height: 180px;
 			border-color: black;
 			margin: 10px;
+	
+
+		}
+		@media all and (min-width:950px){
+			.item{
+				width: 20vw;
+			}
+
+		}
+
+		@media all and (max-width: 950px) and (min-width: 650px)
+		{
+			.item{
+				width: 25vw;
+			}
+		}
+
+		@media all and (max-width: 650px) and (min-width: 350px)
+		{
+			.item{
+				width: 35vw;
+			}		
+		}
+
+		@media all and (max-width: 350px)
+		{
+			.item{
+				width: 45vw;
+			}
 
 		}
 	</style>
