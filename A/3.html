@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<style type="text/css">
+		body{
+			margin: 0;
+			background: #c62f58;
+		}
+		.container{
+			height: 100%;
+			width: 100%;
+			display: flex;
+			/*margin:auto;*/
+			background: #c62f58;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: space-around;
+			align-content: space-around;
+			align-items: center;
+		}
+
+		.item{
+			/*margin:0;*/
+			background: white;
+			height: 45vh;
+			border-color: black;
+			margin: 10px;
+	
+
+		}
+
+		@media all and (min-width:950px){
+			.container{
+				height: 100%
+				width: 100%;
+				position: relative;
+			}
+			.item{
+				width: 20vw;
+			}
+			.item:nth-child(8n-4){
+				opacity: 0;
+				z-index: -1;
+			}
+			.item:nth-child(5){
+				opacity: 0;
+				z-index: -1;
+			}
+			@keyframes slide{
+				0%{
+					transform: translateX(-1.5vw);
+				}
+				50%{
+					transform: translateX(27vw);
+				}
+				100%{
+					transform: translateX(-1.5vw);
+				}
+			}
+			.item:nth-child(8n-7),.item:nth-child(8n-6),.item:nth-child(8n-5),.item:nth-child(8n-4){
+				animation: slide 4s linear;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+			}
+
+			@keyframes backslide{
+				0%{
+					transform: translateX(1.5vw);
+				}
+				50%{
+					transform: translateX(-27vw);
+				}
+				100%{
+					transform: translateX(1.5vw);
+				}
+			}
+			.item:nth-child(5),.item:nth-child(6),.item:nth-child(7),.item:nth-child(8){
+				animation: backslide 4s linear;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+			}
+		}
+
+		@media all and (max-width: 950px) and (min-width: 650px)
+		{
+			.container{
+				position: relative;
+			}
+			.item{
+				width: 25vw;
+
+			}
+			.item:nth-child(6n-3){
+				opacity: 0;
+				z-index: -1;
+			}
+			.item:nth-child(6n-2){
+				opacity: 0;
+				z-index: -1;
+			}
+			@keyframes slide{
+				0%{
+					transform: translateX(-2.5vw);
+				}
+				50%{
+					transform: translateX(36vw);
+				}
+				100%{
+					transform: translateX(-2.5vw);
+				}
+			}
+
+			.item:nth-child(6n-4), .item:nth-child(6n-5){
+				animation: slide 4s linear;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+
+			}
+
+			@keyframes backslide{
+				0%{
+					transform: translateX(2.5vw);
+				}
+				50%{
+					transform: translateX(-36vw);
+				}
+				100%{
+					transform: translateX(2.5vw);
+				}
+
+			}
+
+			.item:nth-child(6n-1), .item:nth-child(6n){
+				animation: backslide 4s linear;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+
+			}
+
+		}
+
+		@media all and (max-width: 650px) and (min-width: 350px)
+		{
+			.container{
+				position: relative;
+			}
+			.item{
+				width: 35vw;
+			}
+			.item:nth-child(4n-2){
+				opacity: 0;
+				z-index: -1;
+			}
+			.item:nth-child(4n-1){
+				opacity: 0;
+				z-index: -1;
+			}
+			@keyframes slide{
+				0%{
+					transform: translateX(-5vw);
+				}
+				50%{
+					transform: translateX(56vw);
+				}
+				100%{
+					transform: translateX(-5vw);
+				}
+			}
+			.item:nth-child(4n-3){
+				animation: slide 4s linear;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+			}
+
+			@keyframes backslide{
+				0%{
+					transform: translateX(5vw);
+				}
+				50%{
+					transform: translateX(-56vw);
+				}
+				100%{
+					transform: translateX(5vw);
+				}
+
+			}
+			.item:nth-child(4n){
+				animation: backslide 4s linear;
+				animation-iteration-count: infinite;
+				animation-direction: alternate;
+
+			}
+
+
+
+		}
+
+		@media all and (max-width: 350px)
+		{
+			.item{
+				width: 45vw;
+			}	
+
+		}
+
+	</style>
+	<title>A3</title>
+</head>
+<body>
+	<div class="container">
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+		<div class="item"></div>
+	</div>
+
+</body>
+</html>
