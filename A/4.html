@@ -67,11 +67,43 @@
 			position: absolute;
 			top: 50%;
 		}
+		a{
+			color: black;
+		}
 
 		@media all and (max-width: 930px){
-			.link{
-				display: none;
+			.back_of_link{
+				position: absolute;
+				background: #c62f58;
+				top: 6vh;
+				height: 30vh;
+				width: 20vw;
+
 			}
+			.link{
+				position: absolute;
+				background: #c62f58;
+				width: 20vw;
+				height: 0vh;
+				/*line-height: 0;*/
+			}
+			.a{
+				top: 10vh;
+				left: 3.5vw;
+			}
+			.b{
+				top: 15vh;
+				left: 3.5vw;
+			}
+			.c{
+				top: 20vh;
+				left: 3.5vw;
+			}
+			.d{
+				top: 25vh;
+				left: 3.5vw;
+			}
+
 
 			.logo{
 				position: absolute;
@@ -81,35 +113,56 @@
 				display: block;
 			}
 			.content{
-				height: 100%;
-				background: black;
-				position: absolute;
+				display: none;
 			}
-			.dropdown:active{
-				
-			}
+			
 
 
 		}
+
 
 	</style>
 	<title>A4</title>
 </head>
 <body>
 	<div class="nav">
-		<button onclick="myFunction()" class="open-menu">
-			<div class="dropdown A"></div>
-			<div class="dropdown B"></div>
-			<div class="dropdown C"></div>
+		<button onclick="openMenu()" id="hamburger">
+			<a><div class="dropdown A"></div></a>
+			<a><div class="dropdown B"></div></a>
+			<a><div class="dropdown C"></div></a>
 		</button>
 		<span class="logo">Logo</span>
-		<div class="content">
-			<span class="link a">link</span>
-			<span class="link b">link</span>
-			<span class="link c">link</span>
-			<span class="link d">link</span>			
+		<div class="back_of_link"></div>
+		<div class="content" id="details">
+			<a href="#link"><span class="link a">link</span></a>
+			<a href="#link"><span class="link b">link</span></a>
+			<a href="#link"><span class="link c">link</span></a>
+			<a href="#link"><span class="link d">link</span></a>			
 		</div>	
 	</div>
+
+	<script>
+		function openMenu(){
+			document.getElementById("details").classList.toggle("show");
+		}
+
+		window.onclick = function(event)
+		{
+			if(!event.target.matches('.hamburger')){
+				var dropdowns = document.getElementByClassName("link");
+				var i;
+				for(i=0;i<dropdowns.length;i++)
+				{
+					var openDropDown = dropdowns[i];
+					if (openDropdown.classList.contains('show')) {
+        				openDropdown.classList.remove('show');
+        			}
+				}
+			}
+		}
+		
+	</script>
+
 
 </body>
 </html>
