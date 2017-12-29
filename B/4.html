@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B4</title>
+</head>
+<body>
+	<p>Type DVM</p>
+	<script type="text/javascript">
+	// document.addEventListener('keydown', function(event) {
+ //    	if(event.keyCode === 68) {
+ //    		document.addEventListener('keydown', function(event1) {
+ //        		if(event1.keyCode === 86){
+ //        			document.addEventListener('keydown', function(event2) {
+ //        				if(event2.keyCode === 77){
+ //        					alert('hello');
+ //        				}
+ //        			},);
+ //        		}
+ //        	});
+        				
+ //    	}
+	// });
+
+	window.onkeypress = function(){displaychar(event);}
+
+	function displaychar(event)
+	{
+		if(event.keyCode === 68) {
+			if(window.onkeyup === 68 && window.onkeydown === 86){
+				alert('h');
+			}
+		}
+
+	}
+	</script>
+
+</body>
+</html>

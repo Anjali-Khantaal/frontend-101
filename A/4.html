@@ -54,6 +54,10 @@
    	 		display: none;
    	 		left: 5%
 		}
+
+		#hamburger{
+			display: none;
+		}
 		
 		.A{
 			position: absolute;
@@ -70,38 +74,52 @@
 		a{
 			color: black;
 		}
+		.close{
+			display: none;
+		}
 
-		@media all and (max-width: 930px){
-			.back_of_link{
+		@media all and (max-width: 930px) {
+			.content{
 				position: absolute;
 				background: #c62f58;
 				top: 6vh;
-				height: 30vh;
-				width: 20vw;
+				height: 35vh;
+				width: 23vw;
+				z-index: -1;
+				display: none;
 
 			}
 			.link{
 				position: absolute;
-				background: #c62f58;
-				width: 20vw;
-				height: 0vh;
-				/*line-height: 0;*/
 			}
 			.a{
-				top: 10vh;
-				left: 3.5vw;
+				top: 3vh;
+				left: 5vw;
+				z-index: 0;
 			}
 			.b{
-				top: 15vh;
-				left: 3.5vw;
+				top: 9vh;
+				left: 5vw;
+				z-index: 0;
 			}
 			.c{
-				top: 20vh;
-				left: 3.5vw;
+				top: 15vh;
+				left: 5vw;
+				z-index: 0;
 			}
 			.d{
-				top: 25vh;
-				left: 3.5vw;
+				top: 21vh;
+				left: 5vw;
+				z-index: 0;
+			}
+			.close{
+				display: block;
+				position: absolute;
+				top: 26.5vh;
+				left: 1vw;
+				z-index: 0;
+				font-family: sans-serif;
+				font-size: 4vh;
 			}
 
 
@@ -109,14 +127,15 @@
 				position: absolute;
 				left: 50%;
 			}
+			#hamburger{
+				display: block;
+			}
 			.dropdown{
 				display: block;
 			}
-			.content{
+			#link_list{
 				display: none;
 			}
-			
-
 
 		}
 
@@ -126,14 +145,14 @@
 </head>
 <body>
 	<div class="nav">
-		<button onclick="openMenu()" id="hamburger">
+		<button onclick="OpenMenu()" id="hamburger">
 			<a><div class="dropdown A"></div></a>
 			<a><div class="dropdown B"></div></a>
 			<a><div class="dropdown C"></div></a>
 		</button>
 		<span class="logo">Logo</span>
-		<div class="back_of_link"></div>
-		<div class="content" id="details">
+		<div class="content" id="link_list">
+			<button onclick="CloseMenu()" class="link close">Close</button>
 			<a href="#link"><span class="link a">link</span></a>
 			<a href="#link"><span class="link b">link</span></a>
 			<a href="#link"><span class="link c">link</span></a>
@@ -142,24 +161,42 @@
 	</div>
 
 	<script>
-		function openMenu(){
-			document.getElementById("details").classList.toggle("show");
+		function OpenMenu(){
+			document.getElementById("link_list").style.display = "block";
 		}
 
-		window.onclick = function(event)
-		{
-			if(!event.target.matches('.hamburger')){
-				var dropdowns = document.getElementByClassName("link");
-				var i;
-				for(i=0;i<dropdowns.length;i++)
-				{
-					var openDropDown = dropdowns[i];
-					if (openDropdown.classList.contains('show')) {
-        				openDropdown.classList.remove('show');
-        			}
-				}
-			}
+		// document.onclick = function(event) {
+  // 			if (!event.target.matches('#hamburger')) {
+
+  //   			var dropdowns = document.getElementsByClassName("link");
+  //   			var i;
+  //   			for (i = 0; i < dropdowns.length; i++) {
+  //     				var openDropdown = dropdowns[i];
+  //     				if (openDropdown.classList.contains('show')) {
+  //      					openDropdown.classList.remove('show');
+  //     				}
+  //   			}
+  // 			}
+		// }
+
+		// if(window.onclick == "true"){
+		// 	if(!document.getElementById("link_list")){
+		// 		document.getElementById("link_list").style.display = "none";
+		// 	}
+		// }
+
+		// window.onclick = function{CloseMenu();}
+		function CloseMenu(){
+			document.getElementById("link_list").style.display = "none";
 		}
+
+		if(!document.getElementById("link_list")){
+			document.onclick = CloseMenu();
+		}
+
+
+		
+
 		
 	</script>
 

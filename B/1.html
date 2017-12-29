@@ -9,22 +9,23 @@
 			height: 100%;
 			display: flex;
 			flex-direction: row;
-			align-content: center;
+			flex-wrap: wrap;
+			justify-content: space-between;
 			font-family: sans-serif;
-			font-size: 10vh;
+			font-size: 4vh;
 		}
 		.button{
 			margin-top: 40vh;
-			margin-left: auto;
-			margin-right: auto;
-			width: 10vw;
-			height: 18vh;
+			margin-left: 0px;
+			margin-right: 0px;
+			width: 10.2vw;
+			height: 8vh;
 			background: grey;
 			text-align: center;
-			line-height: 16vh;
+			line-height: 6vh;
 		}
 		.sound{
-			font-size: 3vh;
+			font-size: 2vh;
 			display: block;
 			line-height: 0vh;
 		}
@@ -32,15 +33,15 @@
 </head>
 <body>
 	<div class="drums">
-		<audio id="clap" src="./sounds/clap.mp3"></audio><span class="button">A <span class="sound">clap</span></span>
-		<audio id="horn" src="./sounds/horn.wav"></audio><span class="button">S <span class="sound">horn</span></span>
-		<audio id="whistle" src="./sounds/whistle.mp3"></audio><span class="button">D <span class="sound">whistle</span></span>
-		<audio id="crash" src="./sounds/crash.wav"></audio><span class="button">F <span class="sound">crash</span></span>
-		<audio id="splash" src="./sounds/splash.wav"></audio><span class="button">G <span class="sound">splash</span></span>
-		<audio id="crackers" src="./sounds/crackers.mp3"></audio><span class="button">H <span class="sound">crackers</span></span>
-		<audio id="meow" src="./sounds/meow.mp3"></audio><span class="button">J <span class="sound">meow</span></span>
-		<audio id="laugh" src="./sounds/laugh.wav"></audio><span class="button">K <span class="sound">laugh</span></span>
-		<audio id="bark" src="./sounds/bark.wav"></audio><span class="button">L <span class="sound">bark</span></span>
+		<audio id="clap" src="./sounds/clap.mp3"></audio><span class="button" id="A">A <span class="sound">clap</span></span>
+		<audio id="horn" src="./sounds/horn.wav"></audio><span class="button" id="S">S <span class="sound">horn</span></span>
+		<audio id="whistle" src="./sounds/whistle.mp3"></audio><span class="button" id="D">D <span class="sound">whistle</span></span>
+		<audio id="crash" src="./sounds/crash.wav"></audio><span class="button F" id="F">F <span class="sound">crash</span></span>
+		<audio id="splash" src="./sounds/splash.wav"></audio><span class="button" id="G">G <span class="sound">splash</span></span>
+		<audio id="crackers" src="./sounds/crackers.mp3"></audio><span class="button" id="H">H <span class="sound">cracker</span></span>
+		<audio id="meow" src="./sounds/meow.mp3"></audio><span class="button" id="J">J <span class="sound">meow</span></span>
+		<audio id="laugh" src="./sounds/laugh.wav"></audio><span class="button" id="K">K <span class="sound">laugh</span></span>
+		<audio id="bark" src="./sounds/bark.wav"></audio><span class="button" id="L">L <span class="sound">bark</span></span>
 	</div>
 	<script type="text/javascript">
 		var sounds = {
@@ -54,14 +55,36 @@
 			75 : 'laugh',
 			76 : 'bark'
 		};
+
+		var keyPressed = {
+			65 : 'A',
+			83 : 'S',
+			68 : 'D',
+			70 : 'F',
+			71 : 'G',
+			72 : 'H',
+			74 : 'J',
+			75 : 'K',
+			76 : 'L'
+		};
 		document.onkeydown = function(e){
 			var soundId = sounds[e.keyCode];
+			var keyId = keyPressed[e.keyCode];
     		if (soundId){
     			document.getElementById(soundId).play();
+    			document.getElementById(keyId).style.background = "#949596";
     		}
-    		else{
-    			console.log("key not mapped : code is", e.keyCode);
-    		}
+		}
+
+		document.onkeyup = function(event){
+			var soundId = sounds[event.keyCode];
+			var keyId = keyPressed[event.keyCode];
+			if(keyId) {
+				document.getElementById(keyId).style.background = "grey";
+				setTimeout(function() {
+					document.getElementById(soundId).pause();
+				},2000);
+			}
 		}
 	</script>
 </body>
