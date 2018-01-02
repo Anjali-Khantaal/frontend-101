@@ -1,51 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<title>B2</title>
 	<style type="text/css">
-		body{
-			background: #e25b26;
+		body {
+			background: #ef6e23;
 		}
-		.main{
-			margin: 100px auto;
-			background: #e25b26;
-			width: 500px;
-			height: 500px;
-			position: relative;
-		}
-		.clock{
+		.wrapper {
 			position: absolute;
-			top: 95px;
-			left: 13vh;
-			width: 300px;
-			height: 300px;
-			background: #e25b26;
-			border-color: white;
-			border-style: solid;
-			border-width: 10px;
-			/*-moz-border-radius: 57px;
-			-webkit-border-radius: 50px;*/
-			border-radius: 160px;
+			top: 140px;
+			left: 350px;
 		}
-		.sec-hand{
-			background: black;
-			width: 5px;
-			height: 130px;
-			position: absolute;
-			top: 95px;
-			left: 13vh;
-		}
+
 	</style>
 </head>
 <body>
-	<div class="main">
-		<div class="clock"></div>
-		<div class="sec-hand"></div>
-		<div class="min-hand"></div>
-		<div class="hour-hand"></div>
-		
+	<div class="wrapper">
+		<canvas id="canvas" width="400" height="400"></canvas>
 	</div>
-
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
