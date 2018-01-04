@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>B6</title>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+		body {
+			font-family: 'Roboto Condensed', sans-serif;
+			margin-left: 40%;
+			margin-top: 10%;
+		}
+		h1 {
+			text-align: center;
+		}
+		.final-wrap {
+			position: relative;
+			border: #eee solid 8px;
+			width: 450px;
+			height: 450px;
+			text-align: center;
+		}
+
+		input {
+			position: absolute;
+			top: 390px;
+			left: 4px;
+    		width: 65%;
+    		padding: 10px;
+    		float: left;
+    		font-size: 16px;
+    		border: solid #eee 5px;
+    		border-radius: 5px;
+		}
+		.addBtn {
+			border-radius: 5px;
+			position: absolute;
+			top: 390px;
+			right: 0px;
+    		padding: 10px;
+    		width: 20%;
+    		height: 5%;
+    		background: #d9d9d9;
+    		color: #555;
+    		float: right;
+    		text-align: center;
+    		font-size: 16px;
+    		cursor: pointer;
+    		transition: 0.3s;
+		}
+		ul {
+			list-style-type: decimal;
+			margin-left: -10px;
+			text-align: left;
+			line-height: 30px;
+		}
+		.additional {
+			position: absolute;
+			display: block;
+			bottom: -50px;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="final-wrap">
+		<h1>Front-End Tech</h1>
+		<div class="container">
+			<form action="#" method="post">
+				<input type="text" placeholder="Add item..." id="item">
+				<span onclick="additem()" class="addBtn">Add</span>
+			</form>
+			<ul id="list"></ul>
+			<span class="additional">double-click on any item to remove it.</span>
+		</div>
+	</div>
+	<script type="text/javascript" src="B6script.js"></script>
+</body>
+</html>

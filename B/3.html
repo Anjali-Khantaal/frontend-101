@@ -21,26 +21,57 @@
 <body>
 	<div class="form">
 		<div class="verticalLine"></div>
-		<button type="checkbox"></button>
+		<input type="checkbox" class="checkbox" id="1" onclick="check_it0()"></input>
 		This is an inbox-layout
 		<hr>
-		<button type="checkbox"></button>
+		<input type="checkbox" class="checkbox" id="2" onclick="check_it1()"></input>
 		Check one term
 		<hr>
-		<button type="checkbox"></button>
+		<input type="checkbox" class="checkbox" id="3" onclick="check_it2()"></input>
 		Hold down your Shift key
 		<hr>
-		<button type="checkbox"></button>
+		<input type="checkbox" class="checkbox" id="4" onclick="check_it3()"></input>
 		Everything in between should also be set to checked
 		<hr>
-		<button type="checkbox"></button>
+		<input type="checkbox" class="checkbox" id="5" onclick="check_it4()"></input>
 		Try to do it without libraries
 		<hr>
-		<button type="checkbox"></button>
+		<input type="checkbox" class="checkbox" id="6" onclick="check_it5()"></input>
 		Just regular JavaScript
 		<hr>
 
 	</div>
+
+	<script type="text/javascript">
+		// document.getElementsByClassName('checkbox').checked = true;
+		// document.getElementsByClassName('checkbox').checked = false;
+
+		var shift =0;
+
+		document.addEventListener('keydown',function(event){
+			if(event.keyCode ==16){
+				shift = 1;
+			}
+		});
+
+		function check_it0() {
+			document.addEventListener('keydown',function(event){
+				if(shift == 1){
+					document.getElementsByClassName('checkbox')[0].checked = true;
+				}
+			});
+		}
+
+		function check_it1() {
+			document.addEventListener('keydown',function(event){
+				if(event.keyCode == 16){
+					document.getElementsByClassName('checkbox')[0].checked = true;
+					document.getElementsByClassName('checkbox')[1].checked = true;
+				}
+			});
+		}
+
+	</script>
 
 </body>
 </html>

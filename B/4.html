@@ -5,32 +5,62 @@
 </head>
 <body>
 	<p>Type DVM</p>
+	<p id="appear-text"></p>
 	<script type="text/javascript">
-	// document.addEventListener('keydown', function(event) {
- //    	if(event.keyCode === 68) {
- //    		document.addEventListener('keydown', function(event1) {
- //        		if(event1.keyCode === 86){
- //        			document.addEventListener('keydown', function(event2) {
- //        				if(event2.keyCode === 77){
- //        					alert('hello');
- //        				}
- //        			},);
- //        		}
- //        	});
-        				
- //    	}
-	// });
+	var isDPressed = 0;
+	var isVPressed = 0;
+	var isMPressed = 0;
+	
+	document.onkeydown = function printText(e) {
+		if((e.shiftKey) && (e.keyCode === 68)) {
+			isDPressed = 1;
+			isVPressed = 0;
+			isMPressed = 0;
+		}
+		else if((e.shiftKey) && (e.keyCode === 86)) {
+			isVPressed = 1;
+			isMPressed = 0;
+		}
+		else if((e.shiftKey) && (e.keyCode === 77)) {
+			isMPressed = 1;
 
-	window.onkeypress = function(){displaychar(event);}
-
-	function displaychar(event)
-	{
-		if(event.keyCode === 68) {
-			if(window.onkeyup === 68 && window.onkeydown === 86){
-				alert('h');
+			if((isDPressed === 1) && (isMPressed === 1) && (isVPressed === 1)) {
+				document.innerHTML += 'Front-end development is fun <br>';
 			}
 		}
+		else {
+			isDPressed = 0;
+			isMPressed = 0;
+			isVPressed = 0;
+		}
+	}
 
+	var D = 0;
+	var V = 0;
+	var M = 0;
+	
+	document.onkeypress = function displayText(e) {
+		if((e.charCode === 68)) {
+			D = 1;
+			V = 0;
+			M = 0;
+		}
+		else if((e.charCode === 86)) {
+			V = 1;
+			M = 0;
+		}
+		else if((e.charCode === 77)) {
+			M =1;
+
+			if((D === 1) && (V === 1) && (M === 1)) {
+				document.getElementsByTagName('p')[1].innerHTML += 'Front-end development is fun <br>';
+			}
+		}
+		else {
+			D = 0;
+			V = 0;
+			M = 0;
+		}
 	}
 	</script>
 
