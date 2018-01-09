@@ -2,81 +2,125 @@
 <html>
 <head>
 	<title>B6</title>
-	<style type="text/css">
-		@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
-
-		body {
-			font-family: 'Roboto Condensed', sans-serif;
-			margin-left: 40%;
-			margin-top: 10%;
-		}
-		h1 {
-			text-align: center;
-		}
-		.final-wrap {
-			position: relative;
-			border: #eee solid 8px;
-			width: 450px;
-			height: 450px;
-			/*overflow: scroll;*/
-			text-align: center;
-		}
-
-		input {
-			position: absolute;
-			top: 390px;
-			left: 4px;
-    		width: 65%;
-    		padding: 10px;
-    		float: left;
-    		font-size: 16px;
-    		border: solid #eee 5px;
-    		border-radius: 5px;
-		}
-		.addBtn {
-			border-radius: 5px;
-			position: absolute;
-			top: 390px;
-			right: 0px;
-    		padding: 10px;
-    		width: 20%;
-    		height: 5%;
-    		background: #d9d9d9;
-    		color: #555;
-    		float: right;
-    		text-align: center;
-    		font-size: 16px;
-    		cursor: pointer;
-    		transition: 0.3s;
-		}
-		ul {
-			list-style-type: decimal;
-			margin-left: -10px;
-			text-align: left;
-			line-height: 30px;
-			overflow: scroll;
-		}
-		.additional {
-			position: absolute;
-			display: block;
-			bottom: -50px;
-		}
-
-	</style>
 </head>
+<style type="text/css">
+	@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+	body {
+		font-family: 'Roboto Condensed', sans-serif;
+		margin-left: 30%;
+		margin-top: 5%;
+		font-size: 180%;
+		text-align: center;
+		line-height: 170%;
+	}
+	.final-wrap{
+		display: flex;
+		justify-content: flex-start;
+		flex-direction: column;
+		width: 450px;
+		height: 500px;
+		/*background: black;*/
+		border: #babdc1 solid 10px;
+	}
+	.head{
+		padding-top: 0;
+		margin-top: 0;
+		width: 100%;
+		height: 10%;
+		border-bottom: #babdc1 solid 10px;
+		/*background: red;*/
+	}
+	.todo-body{
+		width: 100%;
+		height: 80%;
+		/*background: pink;*/
+		overflow: scroll;
+	}
+	.add-items{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		width: 100%;
+		height: 10%;
+		/*background: red;*/
+	}
+	.addspace{
+		width: 80%;
+		height: 90%;
+		margin-top: 0;
+		padding-top: 0;
+	}
+	.addbtn{
+		width: 20%;
+		height: 100%;
+		background: #d9dce0;
+		cursor: pointer;
+	}
+	.addbtn:active {
+		background: #98999b;
+	}
+	ul{
+		font-size: 70%;
+		list-style-type: decimal;
+		text-align: left;
+	}
+	li{
+		border-bottom:#babdc1 solid 4px; 
+		width: 85%;
+		cursor:pointer;
+	}
+	li:hover:after{
+		content:'(click to remove)';
+		color: red;
+		cursor: pointer;
+	}
+</style>
 <body>
-	
 	<div class="final-wrap">
-		<h1>Front-End Tech</h1>
-		<div class="container">
-			<form action="#" method="post">
-				<input type="text" placeholder="Add item..." id="item">
-				<span onclick="additem()" class="addBtn">Add</span>
-			</form>
+		<div class="head">Front-End Tech</div>
+		<div class="todo-body">
 			<ul id="list"></ul>
-			<span class="additional">double-click on any item to remove it.</span>
+		</div>
+		<div class="add-items">
+			<input type="text" class="addspace" placeholder='Add items here...' id="item"></input>
+			<div class="addbtn" onclick="additem()"> Add</div>
 		</div>
 	</div>
-	<script type="text/javascript" src="B6script.js"></script>
+	<script type="text/javascript">
+		function additem() {
+  			list.innerHTML += '<li>' + item.value +'</li>';
+  			store();
+  			item.value = "";
+		}
+
+		function store() {
+  			window.localStorage.myitems = list.innerHTML;
+		}
+  
+		function getValues() {
+  			var storedValues = window.localStorage.myitems;
+  			if(!storedValues) {
+    		list.innerHTML = '';
+  			}
+  			else {
+    			list.innerHTML = storedValues;
+  			}
+		}
+
+		list.addEventListener('click',function(e){
+    		var t = e.target;
+    		if(t.classList.contains('checked')){
+      		t.parentNode.removeChild(t);
+    		} else {
+      		t.classList.add('checked');
+    		}
+    		store();
+  		});
+
+		getValues();
+
+	</script>
+
 </body>
 </html>
