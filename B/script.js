@@ -7,17 +7,17 @@ drawClock();
 setInterval(drawClock,1000);
 
 function drawClock(){
-	ctx.beginPath();
-  	ctx.arc(0, 0, radius, 0, 2*Math.PI);
-  	ctx.fillStyle = '#ef6e23';
-  	ctx.strokeStyle = "white";
-  	ctx.lineWidth = 15;
-  	ctx.stroke();
-  	ctx.fill();
-  	ctx.beginPath();
-  	ctx.arc(0, 0, radius*0.04, 0, 2*Math.PI);
-  	ctx.fillStyle = 'black';
-  	ctx.fill();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.fillStyle = '#ef6e23';
+  ctx.strokeStyle = "white";
+  ctx.lineWidth = 15;
+  ctx.stroke();
+  ctx.fill();
+  ctx.beginPath();
+  ctx.arc(0, 0, radius*0.04, 0, 2*Math.PI);
+  ctx.fillStyle = 'black';
+  ctx.fill();
 	drawTime(ctx,radius);
 }
 
@@ -32,24 +32,24 @@ function drawTime(ctx,radius) {
 	hour = (hour*Math.PI/6) + (minute*Math.PI/(6*60)) + (second*Math.PI/(360*60));
 	drawHand(ctx, hour, radius*0.5, radius*0.04);
 	//minute
-    minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
-    drawHand(ctx, minute, radius*0.8, radius*0.04);
-    // second
-    second=(second*Math.PI/30);
-    drawHand(ctx, second, radius*0.9, radius*0.02);
+  minute=(minute*Math.PI/30)+(second*Math.PI/(30*60));
+  drawHand(ctx, minute, radius*0.8, radius*0.04);
+  // second
+  second=(second*Math.PI/30);
+  drawHand(ctx, second, radius*0.9, radius*0.02);
 }
 
 
 function drawHand(ctx, pos, length, width) {
-    ctx.beginPath();
-    ctx.lineWidth = width;
-    ctx.lineCap = "round";
-    ctx.moveTo(0,0);
-    ctx.rotate(pos);
-    ctx.lineTo(0, -length);
-    ctx.strokeStyle ='black';
-    ctx.stroke();
-    ctx.rotate(-pos);
+  ctx.beginPath();
+  ctx.lineWidth = width;
+  ctx.lineCap = "round";
+  ctx.moveTo(0,0);
+  ctx.rotate(pos);
+  ctx.lineTo(0, -length);
+  ctx.strokeStyle ='black';
+  ctx.stroke();
+  ctx.rotate(-pos);
 }
 
 

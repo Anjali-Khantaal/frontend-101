@@ -21,55 +21,64 @@
 <body>
 	<div class="form">
 		<div class="verticalLine"></div>
-		<input type="checkbox" class="checkbox" id="1" onclick="check_it0()"></input>
+		<input type="checkbox" class="checkbox" id="1"></input>
 		This is an inbox-layout
 		<hr>
-		<input type="checkbox" class="checkbox" id="2" onclick="check_it1()"></input>
+		<input type="checkbox" class="checkbox" id="2"></input>
 		Check one term
 		<hr>
-		<input type="checkbox" class="checkbox" id="3" onclick="check_it2()"></input>
+		<input type="checkbox" class="checkbox" id="3"></input>
 		Hold down your Shift key
 		<hr>
-		<input type="checkbox" class="checkbox" id="4" onclick="check_it3()"></input>
+		<input type="checkbox" class="checkbox" id="4"></input>
 		Everything in between should also be set to checked
 		<hr>
-		<input type="checkbox" class="checkbox" id="5" onclick="check_it4()"></input>
+		<input type="checkbox" class="checkbox" id="5"></input>
 		Try to do it without libraries
 		<hr>
-		<input type="checkbox" class="checkbox" id="6" onclick="check_it5()"></input>
+		<input type="checkbox" class="checkbox" id="6"></input>
 		Just regular JavaScript
 		<hr>
 
 	</div>
 
 	<script type="text/javascript">
-		// document.getElementsByClassName('checkbox').checked = true;
-		// document.getElementsByClassName('checkbox').checked = false;
-
 		var shift =0;
 
+		var i,j,k;
+
+		for(i=0;i<document.getElementsByClassName('checkbox').length;i++) {
+			if(document.getElementsByClassName('checkbox')[i] == true){
+				var start_box = i;
+			}
+			break;
+		}
+
+		for(j=0;j<document.getElementsByClassName('checkbox').length;j++) {
+			if(document.getElementsByClassName('checkbox')[j] == true){
+				var end_box = j;
+			}
+		}
+
 		document.addEventListener('keydown',function(event){
-			if(event.keyCode ==16){
+			if(event.keyCode == 16){
 				shift = 1;
 			}
 		});
-
-		function check_it0() {
-			document.addEventListener('keydown',function(event){
-				if(shift == 1){
-					document.getElementsByClassName('checkbox')[0].checked = true;
+		
+		if(shift ==1){
+			for(k=number(start_box);k<=number(end_box);k++){
+				if(document.getElementsByClassName('checkbox')[k].checked == true){
+					continue;
+				} else{
+					document.getElementsByClassName('checkbox')[k].checked = true;
 				}
-			});
+			}
 		}
 
-		function check_it1() {
-			document.addEventListener('keydown',function(event){
-				if(event.keyCode == 16){
-					document.getElementsByClassName('checkbox')[0].checked = true;
-					document.getElementsByClassName('checkbox')[1].checked = true;
-				}
-			});
-		}
+		document.addEventListener('keyup',function(event) {
+			shift =0;
+		});
 
 	</script>
 
