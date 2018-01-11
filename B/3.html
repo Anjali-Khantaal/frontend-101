@@ -21,23 +21,23 @@
 <body>
 	<div class="form">
 		<div class="verticalLine"></div>
-		<input type="checkbox" class="checkbox" id="1"></input>
-		This is an inbox-layout
+		<label for="1"><input type="checkbox" class="checkbox" id="1"></input>
+		This is an inbox-layout</label>
 		<hr>
-		<input type="checkbox" class="checkbox" id="2"></input>
-		Check one term
+		<label for="2"><input type="checkbox" class="checkbox" id="2"></input>
+		Check one term</label>
 		<hr>
-		<input type="checkbox" class="checkbox" id="3"></input>
-		Hold down your Shift key
+		<label for="3"><input type="checkbox" class="checkbox" id="3"></input>
+		Hold down your Shift key</label>
 		<hr>
-		<input type="checkbox" class="checkbox" id="4"></input>
-		Everything in between should also be set to checked
+		<label for="4"><input type="checkbox" class="checkbox" id="4"></input>
+		Everything in between should also be set to checked</label>
 		<hr>
-		<input type="checkbox" class="checkbox" id="5"></input>
-		Try to do it without libraries
+		<label for="5"><input type="checkbox" class="checkbox" id="5"></input>
+		Try to do it without libraries</label>
 		<hr>
-		<input type="checkbox" class="checkbox" id="6"></input>
-		Just regular JavaScript
+		<label for="6"><input type="checkbox" class="checkbox" id="6"></input>
+		Just regular JavaScript</label>
 		<hr>
 
 	</div>
@@ -45,18 +45,24 @@
 	<script type="text/javascript">
 		var shift =0;
 
-		var i,j,k;
+		var i,j,k,start_box,end_box;
 
-		for(i=0;i<document.getElementsByClassName('checkbox').length;i++) {
-			if(document.getElementsByClassName('checkbox')[i] == true){
-				var start_box = i;
+		window.onload = function(){
+			for(i=1;i<document.getElementsByClassName('checkbox').length;i++) {
+				if(document.getElementsByClassName('checkbox')[i].checked == true){
+					start_box = i;
+					break;
+				}else{
+					continue;
+				}
 			}
-			break;
-		}
 
-		for(j=0;j<document.getElementsByClassName('checkbox').length;j++) {
-			if(document.getElementsByClassName('checkbox')[j] == true){
-				var end_box = j;
+			for(j=1;j<document.getElementsByClassName('checkbox').length;j++) {
+				if(document.getElementsByClassName('checkbox')[j].checked == true){
+					end_box = (j);
+				}else{
+					continue;
+				}
 			}
 		}
 
@@ -65,20 +71,31 @@
 				shift = 1;
 			}
 		});
-		
-		if(shift ==1){
-			for(k=number(start_box);k<=number(end_box);k++){
-				if(document.getElementsByClassName('checkbox')[k].checked == true){
-					continue;
-				} else{
-					document.getElementsByClassName('checkbox')[k].checked = true;
+
+
+		document.addEventListener('click',function(){
+			if(shift){
+				for(k=number(start_box);k<=number(end_box);k++){
+					if(document.getElementsByClassName('checkbox')[k].checked == true){
+						continue;
+					} else{
+						document.getElementsByClassName('checkbox')[k].checked = true;
+					}
 				}
 			}
-		}
+		});
+		
+		
 
 		document.addEventListener('keyup',function(event) {
 			shift =0;
 		});
+
+		window .onload = function(){
+			document.getElementsByClassName('checkbox')[3].checked = true;
+			var t = document.createTextNode(i);
+			document.body.appendChild(t);
+		}
 
 	</script>
 
