@@ -47,8 +47,16 @@
 
 		var i,j,k,start_box,end_box;
 
-		window.onload = function(){
-			for(i=1;i<document.getElementsByClassName('checkbox').length;i++) {
+
+		document.addEventListener('keydown',function(event){
+			if(event.keyCode == 16){
+				shift = 1;
+			}
+		});
+
+
+		document.addEventListener('click',function(){
+			for(i=0;i<document.getElementsByClassName('checkbox').length;i++) {
 				if(document.getElementsByClassName('checkbox')[i].checked == true){
 					start_box = i;
 					break;
@@ -59,23 +67,14 @@
 
 			for(j=1;j<document.getElementsByClassName('checkbox').length;j++) {
 				if(document.getElementsByClassName('checkbox')[j].checked == true){
-					end_box = (j);
+					end_box = j;
 				}else{
 					continue;
 				}
 			}
-		}
-
-		document.addEventListener('keydown',function(event){
-			if(event.keyCode == 16){
-				shift = 1;
-			}
-		});
-
-
-		document.addEventListener('click',function(){
+	
 			if(shift){
-				for(k=number(start_box);k<=number(end_box);k++){
+				for(k=(start_box);k<=(end_box);k++){
 					if(document.getElementsByClassName('checkbox')[k].checked == true){
 						continue;
 					} else{
@@ -90,12 +89,6 @@
 		document.addEventListener('keyup',function(event) {
 			shift =0;
 		});
-
-		window .onload = function(){
-			document.getElementsByClassName('checkbox')[3].checked = true;
-			var t = document.createTextNode(i);
-			document.body.appendChild(t);
-		}
 
 	</script>
 
