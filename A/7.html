@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A7</title>
+	<style type="text/css">
+		body {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.final-wrap {
+			background: #999797;
+			width: 320px;
+			height: 600px;
+			border-radius: 30px;
+			position: relative;
+			text-align: center;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.body {
+			background: black;
+			/*width: 200px;
+			height: 400px;*/
+			width: 96%;
+			height: 98%;
+			border-radius: 30px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			/*margin: 10px auto;*/
+		}
+		.base {
+			background: #cccfd1;
+			width: 96%;
+			height: 98%;
+			border-radius: 30px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+		.screen {
+			background: radial-gradient(ellipse at 100% 15%,rgba(31, 73, 224,1),rgba(31, 73, 224,0.5)23%,rgba(31, 73, 224,0)40%),
+			radial-gradient(ellipse at 0% 10%,rgba(232, 53, 118,1),rgba(232, 53, 118,0.8),rgba(232, 53, 118,0)63%),
+			/*radial-gradient(circle at 50% 80%,rgba(252, 236, 224,1)0%,rgba(249, 215, 189,1)20%,rgba(239, 153, 100,0)60%);*/
+			linear-gradient(290deg,rgba(247, 127, 116,1), rgba(247, 127, 116,0) 40% ),
+			linear-gradient(60deg,rgba(252, 148, 138,0.7), rgba(252, 148, 138,0) 40% ),
+			linear-gradient(90deg,rgba(252, 148, 138,0.5), rgba(252, 148, 138,0) 60% );
+			/*radial-gradient(circle at 95% 95%,rgba(247, 144, 134,1)0%,rgba(247, 144, 134,0.7)20%,rgba(247, 144, 134,0)35%),*/
+			/*linear-gradient(75deg,rgba(239, 129, 62,0.7), rgba(239, 129, 62,0) 35% ),*/
+			/*linear-gradient(300deg,rgba(249, 248, 247,1),rgba(249, 248, 247,0) 40%);*/
+			width: 93%;
+			height: 96%;
+			border-radius: 30px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+			border: solid 4px black;
+			box-shadow:0px 0px 15px 6px;
+		}
+		.right {
+			position: relative;
+			background: #999797;
+			width: 5px;
+			height: 70px;
+			top: -130px;
+			right: 49.7px;
+		}
+		.sound {
+			position: relative;
+			background: #999797;
+			width: 4px;
+			height: 30px;
+			top: -195px;
+			left: -378px
+		}
+		.vol-up {
+			position: relative;
+			background: #999797;
+			width: 4px;
+			height: 50px;
+			top: -130px;
+			left: -382px
+		}
+		.vol-down {
+			position: relative;
+			background: #999797;
+			width: 4px;
+			height: 50px;
+			top: -60px;
+			left: -386px
+		}
+		.speaker {
+			background: black;
+			height: 25px;
+			width: 130px;
+			border-bottom-right-radius: 20px;
+			border-bottom-left-radius: 20px;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-around;
+			align-items: flex-end;
+		}
+		.right-cover {
+			position: relative;
+			background: none;
+			box-shadow: 5px -5px black;
+			border-radius: 50%;
+			width: 25px;
+			height: 20px;
+			bottom: 268px;
+			right: 249px;
+			/*height:33px;
+			width:33px;
+			box-shadow: 4px -4px black;
+			border-radius: 50%;
+			position:relative;
+			left:-98px;*/
+		}
+		.left-cover {
+			position: relative;
+			background: none;
+			box-shadow: -5px -5px black;
+			border-radius: 50%;
+			width: 25px;
+			height: 20px;
+			bottom: 269px;
+			right: 122px;
+		}
+		.camera {
+			background: blue;
+			width: 5px;
+			height: 5px;
+			position: absolute;
+			top: 22px;
+			right: 120px;
+			margin: 10px;
+			border-radius: 50%;
+		}
+	</style>
+</head>
+<body>
+	<div class="final-wrap">
+		<div class="body">
+			<div class="base">
+				<div class="screen">
+					<div class="speaker">
+						<div class="camera"></div>
+					</div>	
+				</div>
+			</div>
+			
+		</div>
+			
+	</div>
+	<div class="right-cover"></div>
+	<div class="left-cover"></div>
+	<div class="button right"></div>
+	<div class="button sound"></div>
+	<div class="button vol-up"></div>
+	<div class="button vol-down"></div>
+
+</body>
+</html>
