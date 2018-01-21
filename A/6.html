@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>A6COPY</title>
+</head>
+	<style type="text/css">
+	.st0{fill:#FDFDFD;}
+	.st1{fill:#212121;}
+	.st2{fill:#EB426E;}
+
+	body {
+			height: 100%;
+			width: 100%;
+			background: #212121;
+		}
+		.d {
+			stroke-linecap: square;
+			opacity: 0;
+			stroke: #fff;
+			stroke-width: 2;
+			stroke-dasharray: 1000;
+			stroke-dashoffset:1000;
+			animation: animate_d 2s cubic-bezier(0.57, 0.32, 0.57, 1.04) forwards;
+			animation-delay: 0.2s;
+		}
+		.v {
+			stroke-linecap: square;
+			opacity: 0;
+			stroke: #ED426E;
+			stroke-width: 2;
+			stroke-dasharray: 610;
+			animation: animate_v 2.7s cubic-bezier(0.57, 0.32, 0.57, 1.04) forwards;
+			/*animation-delay: 0.5s;*/
+		}
+		.m {
+			stroke-linecap: square;
+			opacity: 0;
+			stroke: #fff;
+			stroke-width: 2;
+			stroke-dasharray: 620;
+			animation: animate_m 2s cubic-bezier(0.57, 0.32, 0.57, 1.04) forwards;
+			animation-delay: 0.6s;
+		}
+		@keyframes animate_d {
+			0% {
+				opacity: 1;
+				stroke-dashoffset: -1000;
+				fill: #212121;
+			}
+			70% {
+				opacity: 1;
+				stroke-dashoffset: 0;
+				fill: #212121;
+			}
+			100% {
+				opacity: 1;
+				stroke-dashoffset: 0;
+				fill: #fff;
+			}
+		}
+
+		@keyframes animate_v {
+			0% {
+				opacity: 1;
+				stroke-dashoffset: -610;
+				fill: #212121;
+			}
+			70% {
+				opacity: 1;
+				stroke-dashoffset: 0;
+				fill: #212121;
+			}
+			100% {
+				opacity: 1;
+				stroke-dashoffset: 0;
+				fill: #EB426E;
+			}
+		}
+
+		@keyframes animate_m {
+			0% {
+				opacity: 1;
+				stroke-dashoffset: -620;
+				fill: #212121;
+			}
+			70% {
+				opacity: 1;
+				stroke-dashoffset: 0;
+				fill: #212121;
+			}
+			100% {
+				opacity: 1;
+				stroke-dashoffset: 0;
+				fill: #fff;
+			}
+		}
+</style>
+<body>
+	<svg x="0px" y="0px" viewBox="0 0 1366 768" width="100vw" height="100vh" transform="scale(2)" style="enable-background:new 0 0 1366 768;">
+		<g i:extraneous="self">
+		<g id="XMLID_1_">
+			<g>
+				<polygon class="st0 m" points="648.1,283.6 648.1,431.2 635.5,420.4 635.5,299.2 				"/>
+				<polygon class="st0 d" points="569.5,346 569.5,366.4 531.7,318.4 531.7,404.8 548.5,389.8 555.7,400 519.7,428.8 519.7,285.4 
+									"/>
+				<path class="st1" d="M740.5,237.4v256.8H441.1V237.4H740.5z M648.1,431.2V283.6l-12.6,15.6v121.2L648.1,431.2z M628.3,346
+					l-0.6-18.6l-47.3,67.5l-29.8-37.5v20.9l29.8,36.1L628.3,346z M569.5,366.4V346l-49.8-60.6v143.4l36-28.8l-7.2-10.2l-16.8,15
+					v-86.4L569.5,366.4z"/>
+				<polygon class="st2 v" points="627.7,327.4 628.3,346 580.4,414.4 550.6,378.2 550.6,357.4 580.4,394.9 				"/>
+			</g>
+			<g>
+			</g>
+		</g>
+	</g>
+	</svg>
+</body>
+</html>

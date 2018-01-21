@@ -1,38 +1,48 @@
 <!DOCTYPE html>
 <html>
-<style>
-	#world_map_img {
-	  cursor: pointer;
-	  position: relative;
-/*	  z-index: 0;*/
-	}
-	#zoom-out {
-		cursor: pointer;
-		position: fixed;
-/*		z-index: 1;*/
-		right: 5vh;
-		top: 88vh;
-		background-color: #fff;
-		height: 5vh;
-		width: 10vh;
+	<meta name="viewport" content="width=device-width,initial-scale=0.2,user-scalable=no">
+	<style>
+		/*#container {
+			background: url('world.jpeg');
+			height: 100vh;
+			width: 100vw;
+			background-size: cover;
+		}*/
+		#container:active {
+			cursor: pointer;
+		}
+		#world_map_img {
+		  cursor: pointer;
+		  position: relative;
+	/*	  z-index: 0;*/
+		}
+		#zoom-out {
+			cursor: pointer;
+			position: fixed;
+	/*		z-index: 1;*/
+			right: 5vh;
+			top: 88vh;
+			background-color: #fff;
+			height: 5vh;
+			width: 10vh;
 
-	}
-	#zoom-out:hover {
-		cursor: pointer;
-	}
-	#zoom-in {
-		cursor: pointer;
-		position: fixed;
-		right: 5vh;
-		top: 82vh;
-		background-color: #fff;
-		height: 5vh;
-		width: 10vh;
-	}
-	#zoom-in:hover {
-		cursor: pointer;
-	}
-</style>
+		}
+		#zoom-out:hover {
+			cursor: pointer;
+		}
+		#zoom-in {
+			cursor: pointer;
+			position: fixed;
+			right: 5vh;
+			top: 82vh;
+			background-color: #fff;
+			height: 5vh;
+			width: 10vh;
+		}
+		#zoom-in:hover {
+			cursor: pointer;
+		}
+	</style>
 <body>
 <div id="container">
   <img id="world_map_img" src="world.jpeg" />

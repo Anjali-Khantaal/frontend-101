@@ -19,6 +19,7 @@ window.addEventListener('keydown',function(e){
     }
     else if (e.keyCode == '37') {
        // left arrow
+       
     }
     else if (e.keyCode == '39') {
        // right arrow
