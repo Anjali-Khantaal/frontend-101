@@ -1,115 +1,68 @@
 <!DOCTYPE html>
 <html>
-	<meta name="viewport" content="width=device-width,initial-scale=0.2,user-scalable=no">
-	<style>
-		/*#container {
-			background: url('world.jpeg');
+<head>
+	<title>B7 frontend-101</title>
+	<meta charset="utf-8" name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,maximum-scale=1.0, minimum-scale=1.0">
+	<style type="text/css">
+		body,html {
+			height: 100%;
+			width: 100%;
+			padding: 0;
+			margin: 0;
+		}
+		#map-container {
+			position:absolute; 
+			top:0;
+			left:0;
+			background: url(/Users/apple/Desktop/github/frontend-101/B/world.jpeg);
 			height: 100vh;
 			width: 100vw;
 			background-size: cover;
+			overflow: hidden;
+			transform: scale(1);
+		}
+		#map-container:active {
+			cursor: pointer;
+		}
+		/*#container {
+			position:absolute; 
+			top:0;
+			left:0;
+			height: 100vh;
+			width: 100vw;
 		}*/
-		#container:active {
-			cursor: pointer;
-		}
-		#world_map_img {
-		  cursor: pointer;
-		  position: relative;
-	/*	  z-index: 0;*/
-		}
-		#zoom-out {
-			cursor: pointer;
-			position: fixed;
-	/*		z-index: 1;*/
-			right: 5vh;
-			top: 88vh;
-			background-color: #fff;
-			height: 5vh;
-			width: 10vh;
-
-		}
-		#zoom-out:hover {
-			cursor: pointer;
-		}
-		#zoom-in {
-			cursor: pointer;
-			position: fixed;
-			right: 5vh;
-			top: 82vh;
-			background-color: #fff;
-			height: 5vh;
-			width: 10vh;
-		}
-		#zoom-in:hover {
-			cursor: pointer;
-		}
 	</style>
+</head>
 <body>
-<div id="container">
-  <img id="world_map_img" src="world.jpeg" />
-  <button type="button" id="zoom-in">Zoom in</button>
-  <button type="button" id="zoom-out">Zoom out</button>
-</div>
-<script>
+	<div id="map-container"></div>
 
-	window.ondragstart = function(){
-		return false;
-	}
-	var img_ele = 0,
-	  x_cursor = 0,
-	  y_cursor = 0,
-	  x_img_ele = 0,
-	  y_img_ele = 0;
-	  world_map = document.getElementById('world_map_img');
-	  container = document.getElementById('container');
+	<script type="text/javascript">
+		
+		window.ondragstart = function(){
+			return false;
+		}
 
-	function start_drag() {
-	  img_ele = this;
-	  x_img_ele = window.event.clientX - world_map.offsetLeft;
-	  y_img_ele = window.event.clientY - world_map.offsetTop;
+		var zoomIntensity = 0.5;
+		var world_map = document.getElementById('map-container');
+		var scale = 1;
+		var originx = 0;
+		var originy = 0;
+		var deltaX, deltaY;
 
-	}
+		world_map.onmousewheel = function(e) {
+			e.preventDefault();
+			var wheel = event.wheelDelta/120;
+			var zoom = Math.exp(wheel*zoomIntensity);
+			scale *= zoom;
+			if((scale > 0.5) && (scale <11)){
+				world_map.style.transform = 'scale('+scale+')';
+				world_map.style.top = '0';
+				world_map.style.left = '0';
+			}
+		}
 
-	function stop_drag() {
-	  img_ele = 0;
-	}
+		</script>
 
-	function while_drag() {
-	  var x_cursor = window.event.clientX;
-	  var y_cursor = window.event.clientY;
-	  if (img_ele !== 0) {
-	    img_ele.style.left = (x_cursor - x_img_ele) + 'px';
-	    img_ele.style.top = ( window.event.clientY - y_img_ele) + 'px';
-
-	  }
-	}
-
-	world_map.addEventListener('mousedown', start_drag);
-	container.addEventListener('mousemove', while_drag);
-	container.addEventListener('mouseup', stop_drag);
-
-	//zoom in and out functions
-	var zoom_map = document.getElementById('zoom-in');
-	var zoom_out_map = document.getElementById('zoom-out');
-
-	zoom_map.onclick = function(event) {
-		var times = 100;
-		var positionInfo = world_map.getBoundingClientRect();
-		world_map.style.width = positionInfo.width+times+'px';
-  		world_map.style.height = positionInfo.height+times+'px';
-
-	}
-
-	zoom_out_map.onclick = function(event) {
-		var times = -100;
-		var positionInfo = world_map.getBoundingClientRect();
-		world_map.style.width = positionInfo.width+times+'px';
-  		world_map.style.height = positionInfo.height+times+'px';
-
-	}
-
-
-</script>
 </body>
 </html>
-
 
